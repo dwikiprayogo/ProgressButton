@@ -6,8 +6,6 @@ group='com.github.dwikiprayogo'
 android {
     compileSdkVersion 27
 
-
-
     defaultConfig {
         minSdkVersion 19
         targetSdkVersion 27
@@ -29,9 +27,15 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-
+    // Optional -- UI testing with Espresso
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
     implementation 'com.android.support:appcompat-v7:27.1.1'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 }
+
+// or use the remote copy to keep update with latest changes
+//apply from: 'https://raw.githubusercontent.com/blundell/release-android-library/master/android-release-aar.gradle'
